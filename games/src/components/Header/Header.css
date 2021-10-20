@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  background-color: rgb(48, 46, 46);
+  border-bottom: 1px solid #fff;
+}
+.headerLogo {
+  width: 50px;
+  margin: 0.5em;;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+.navbar ul li {
+    transition: all .3s;
+}
+.navbar ul li a {
+  color: #fff;
+  margin: 1rem;
+  text-decoration: none;
+  transition: ease-in .3s;
+}
+.navbar ul li a:hover{
+    color: rgb(93, 228, 31);
+    margin: 1rem;
+    text-decoration: none;
+}
+
+
+.navbar ul li:hover {
+    transform: scale(1.1);
+}
