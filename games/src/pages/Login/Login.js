@@ -1,6 +1,7 @@
 import React from "react";
 import { Api } from "../../api/Api";
 import { JwtHandler } from "../../jwt-handler/JwtHandler";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 export default function Login(props) {
@@ -71,6 +72,11 @@ export default function Login(props) {
             type="submit"
             value="Login"
           />
+        </div>
+        <div>
+          <Link to="/register">
+            <p>Create a new account</p>
+          </Link>
         </div>
       </form>
     </div>
