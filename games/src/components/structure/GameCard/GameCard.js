@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router";
 
+
 export default function GameCard({ game }) {
+  
   const history = useHistory();
 
-  const handleClick = () => {
-    history.push(`/game/view/${game.id}`);
+  const handleClick = (path) => {
+    const p = path === "view" ? "/game/view" : path === "delete" ? "/game/delete" : "/game/edit";
+
+    history.push(`${p}/${game.id}`);
   };
+  
 
   const stars = [];
   for (var i = 0; i < game.IMDB; i++) {
@@ -14,14 +19,16 @@ export default function GameCard({ game }) {
   }
 
   return (
-    <div className="card" onClick={handleClick}>
-      <div className="card__title">
+    <div className="card" >
+      <div className="card__title"onClick={()=>handleClick("view")}>
         <h1>{game.title}</h1>
         <img src={game.cover} alt={game.title} />
         <p>{game.description}</p>
         <p>{game.year}</p>
         {stars.map((star => <i class="fas fa-star"></i>))}
       </div>
+      <button type="button" onClick={() => handleClick('delete')}>Delete</button>
+      <button type="button" onClick={() => handleClick('edit')}>Edit</button>
     </div>
   );
 }

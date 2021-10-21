@@ -4,7 +4,7 @@ export default function Register(props) {
   const heandleSubmit = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
-    const lastName = event.target.lastname.value;
+    const lastName = event.target.lastName.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     const cpf = event.target.cpf.value;
@@ -17,12 +17,11 @@ export default function Register(props) {
       cpf,
     };
     const response = await Api.postRequest(Api.url("/users"), payload, true);
-    const body = await response.json();
     if(response.status === 201){
-        const id = body.id;
-        props.history.push(`/product/view/${id}`)
+        window.alert("User successfully")
+        props.history.push(`/profile/create`)
     }else {
-        window.alert(response.status)
+        window.alert(response.statusText)
     }
   };
 

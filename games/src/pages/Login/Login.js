@@ -21,7 +21,6 @@ export default function Login(props) {
 
     // Faz uma requisição no backend
     const response = await Api.postRequest(Api.url("/login"), payload);
-
     const body = await response.json();
 
     if (response.status === 200) {
