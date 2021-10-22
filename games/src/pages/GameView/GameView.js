@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Api } from "../../../api/Api";
+import { Api } from "../../api/Api";
+import { Link } from "react-router-dom";
+
+
 export default function GameView(props) {
   const [game, setGame] = useState([]);
   const id = props.match.params.id;
-  console.log(id);
   useEffect(() => {
     const loadGameList = async () => {
       const response = await Api.getRequest(Api.url("/games/", id));
@@ -12,6 +14,8 @@ export default function GameView(props) {
     };
     loadGameList();
   }, []);
+
+  
   const stars = [];
   for (var i = 0; i < game.IMDB; i++) {
     stars.push(1);
@@ -26,6 +30,7 @@ export default function GameView(props) {
       <iframe src={game.gameplay} frameBorder="0" title={game.title}></iframe>
       <iframe src={game.trailer} frameBorder="0" title={game.trailer}></iframe>
       <p>{game.year}</p>
+      <Link to={"/game/add"}><button type="button">Add Game</button></Link>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Api } from "../../api/Api";
+import { JwtHandler } from "../../jwt-handler/JwtHandler";
 export default function Register(props) {
   const heandleSubmit = async (event) => {
     event.preventDefault();
@@ -16,10 +17,21 @@ export default function Register(props) {
       password,
       cpf,
     };
+    const login = {
+      email,
+      password,
+    }
     const response = await Api.postRequest(Api.url("/users"), payload, true);
+    const body = await response.json();
+    const id = body.id;
     if(response.status === 201){
         window.alert("User successfully")
-        props.history.push(`/profile/create`)
+        const log = await Api.postRequest(Api.url("/login"), login);
+        const data = await log.json();
+        const accessToken = data.accessToken
+        JwtHandler.setJwt(accessToken);
+ 
+        props.history.push(`profile/create${id}`)
     }else {
         window.alert(response.statusText)
     }

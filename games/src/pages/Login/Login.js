@@ -22,10 +22,16 @@ export default function Login(props) {
     // Faz uma requisição no backend
     const response = await Api.postRequest(Api.url("/login"), payload);
     const body = await response.json();
-
     if (response.status === 200) {
       const accessToken = body.accessToken;
+      const admin = body.admin
       JwtHandler.setJwt(accessToken);
+      JwtHandler.setAdmin(admin);
+
+      const user = await Api.getRequest(Api.url(`/users/email/${email}`),true)
+      const userData = await user.json();
+      const userId = userData.id
+      localStorage.setItem("userId", userId);
       props.history.push(`/`);
     } else {
       // Error

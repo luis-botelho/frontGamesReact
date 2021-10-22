@@ -1,11 +1,20 @@
 export const JwtHandler = {
     JWT_KEY: "JWT",
-
+    ADMIN: "ADMIN",
     onChangeEvent: new CustomEvent("onJwtChange"),
 
     onChange: () => {
         window.dispatchEvent(JwtHandler.onChangeEvent);
     },
+
+    setAdmin: value => {
+        localStorage.setItem(JwtHandler.ADMIN, value)
+    },
+    getAdmin: () => {
+        return localStorage.getItem(JwtHandler.ADMIN)
+    },
+    isAdmin: () => JwtHandler.getAdmin()
+    ,
 
     setJwt: value => {
         localStorage.setItem(JwtHandler.JWT_KEY, value);

@@ -27,7 +27,6 @@ export default function CreateGame(props) {
       const id = body.id;
       props.history.push(`/game/view/${id}`);
     } else {
-        console.log(response)
       window.alert(response.statusText);
     }
   };

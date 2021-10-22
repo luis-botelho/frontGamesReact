@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router";
-import { JwtHandler } from "../../jwt-handler/JwtHandler";
+import { JwtHandler } from "../jwt-handler/JwtHandler";
 
 export default function GuardedRoute({ component: Component, ...rest }) {
     const auth = JwtHandler.isJwtValid();

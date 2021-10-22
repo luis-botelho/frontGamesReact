@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 
 
-export default function GameCard({ game }) {
+export default function GameCard({ game, admin }) {
   
   const history = useHistory();
 
@@ -11,8 +11,6 @@ export default function GameCard({ game }) {
 
     history.push(`${p}/${game.id}`);
   };
-  
-
   const stars = [];
   for (var i = 0; i < game.IMDB; i++) {
     stars.push(1);
@@ -27,8 +25,12 @@ export default function GameCard({ game }) {
         <p>{game.year}</p>
         {stars.map((star => <i class="fas fa-star"></i>))}
       </div>
-      <button type="button" onClick={() => handleClick('delete')}>Delete</button>
-      <button type="button" onClick={() => handleClick('edit')}>Edit</button>
+      {admin === true ? <div>
+        <button type="button" onClick={() => handleClick('delete')}>Delete</button>
+        <button type="button" onClick={() => handleClick('edit')}>Edit</button>
+      </div> : null }
+
+      
     </div>
   );
 }
