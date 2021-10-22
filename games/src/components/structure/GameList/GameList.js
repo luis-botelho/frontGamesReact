@@ -3,7 +3,7 @@ import {Api} from '../../../api/Api'
 import GameCard from "../GameCard/GameCard"
 import { Link } from "react-router-dom";
 import { JwtHandler } from '../../../jwt-handler/JwtHandler';
-
+import './GameList.css'
 
 export default function GameList() {
     const [games, setGames] = useState([])
@@ -17,11 +17,11 @@ export default function GameList() {
         loadGameList();
     }, [])
     return (
-        <div className="cads">
+        <div className="cards">
             { admin === true ?
                 <Link to={"/game/create"}><button type="button">Create Game</button></Link> : null}
             {games.map((game, index) => (
-                <div>
+                <div className="game">
                     <GameCard
                         key={index}
                         game={game}

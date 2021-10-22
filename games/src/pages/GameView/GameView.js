@@ -27,10 +27,11 @@ export default function GameView(props) {
       {stars.map((star => <i class="fas fa-star"></i>))}
       <img src={game.cover} alt={game.title}></img>
       <p>{game.description}</p>
-      <iframe src={game.gameplay} frameBorder="0" title={game.title}></iframe>
-      <iframe src={game.trailer} frameBorder="0" title={game.trailer}></iframe>
+      <iframe width="560" height="315" src={game.gameplay} title={game.title + "Game Play"} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="315" src={game.trailer} title={game.title + "Game Trailer"} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <p>{game.year}</p>
       <Link to={"/game/add"}><button type="button">Add Game</button></Link>
     </div>
   );
 }
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/mw1-ndQ-AUw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

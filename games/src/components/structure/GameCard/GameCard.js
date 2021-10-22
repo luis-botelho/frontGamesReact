@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-
+import "./GameCard.css";
 
 export default function GameCard({ game, admin }) {
   
@@ -17,10 +17,13 @@ export default function GameCard({ game, admin }) {
   }
 
   return (
-    <div className="card" >
-      <div className="card__title"onClick={()=>handleClick("view")}>
-        <h1>{game.title}</h1>
-        <img src={game.cover} alt={game.title} />
+    <section>
+      <div className="gameCard"onClick={()=>handleClick("view")}>
+        <div>
+          <h1>{game.title}</h1>
+          <img src={game.cover} alt={game.title} />
+        </div>
+        <p>{game.genre}</p>
         <p>{game.description}</p>
         <p>{game.year}</p>
         {stars.map((star => <i class="fas fa-star"></i>))}
@@ -31,6 +34,6 @@ export default function GameCard({ game, admin }) {
       </div> : null }
 
       
-    </div>
+    </section>
   );
 }

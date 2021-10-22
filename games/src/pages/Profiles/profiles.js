@@ -4,7 +4,7 @@ import { Api } from "../../api/Api";
 export default function Profiles() {
     const [profile, setProfile] = useState([]);
     const id = localStorage.getItem('userId')
-
+    localStorage.removeItem("profile")
 
     useEffect(() => {
         const loadProfiles = async () => {
@@ -15,15 +15,21 @@ export default function Profiles() {
         loadProfiles();
         
     }, [])
-
+    const heandleClick = (id)=>{
+        localStorage.setItem("profile", id) 
+        console.log("seted")
+    }
     return (
         <div>
             {profile.map((profile) => (
-                <div>
+                <div onClick={() => heandleClick(profile.id)}>
                     <p>{profile.title}</p>
                     <img src={profile.image} alt={profile.title} />
                 </div>
             ))}
+            <div>
+                
+            </div>
         </div>
     )
 }

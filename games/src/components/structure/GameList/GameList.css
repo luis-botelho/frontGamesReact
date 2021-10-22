@@ -1,0 +1,9 @@
+.cards{
+    display: flex;
+
+}
+.game{
+    margin: 1px;
+    height:70vh;
+    overflow: hidden;
+}

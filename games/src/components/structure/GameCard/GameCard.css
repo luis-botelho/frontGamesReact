@@ -1,0 +1,8 @@
+.gamecard{
+    background-color:black;
+    margin:5rem;
+}
+.gamecard img{
+    width:100%;
+    height:100%;
+}
