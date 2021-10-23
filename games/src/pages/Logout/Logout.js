@@ -5,6 +5,7 @@ import { JwtHandler } from "../../jwt-handler/JwtHandler";
 export default function Logout() {
     useEffect(() => {
         JwtHandler.clearJwt();
+        JwtHandler.clearJwt();
     });
 
     return <Redirect to="/login" />;

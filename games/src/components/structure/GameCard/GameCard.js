@@ -20,7 +20,7 @@ export default function GameCard({ game, admin }) {
     <section>
       <div className="gameCard"onClick={()=>handleClick("view")}>
         <div>
-          <h1>{game.title}</h1>
+          <h2>{game.title}</h2>
           <img src={game.cover} alt={game.title} />
         </div>
         <p>{game.genre}</p>

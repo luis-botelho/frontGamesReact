@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import { Api } from "../../api/Api";
 
-export default function Profiles() {
+export default function Profiles(props) {
     const [profile, setProfile] = useState([]);
     const id = localStorage.getItem('userId')
     localStorage.removeItem("profile")
@@ -18,6 +18,7 @@ export default function Profiles() {
     const heandleClick = (id)=>{
         localStorage.setItem("profile", id) 
         console.log("seted")
+        props.history.push(`/`);
     }
     return (
         <div>
@@ -28,7 +29,7 @@ export default function Profiles() {
                 </div>
             ))}
             <div>
-                
+
             </div>
         </div>
     )

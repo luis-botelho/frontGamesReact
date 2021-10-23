@@ -26,7 +26,7 @@ export default function FavoritesGames() {
     <div>
       {games.map((game, index) => (
         <div>
-          <p>{game.title}</p>
+          <h1>{game.title}</h1>
           {stars.map((star) => (
             <i class="fas fa-star"></i>
           ))}

@@ -12,7 +12,7 @@ export default function CreateProfiles(props) {
       title,
       image,
       user: {"id":id} ,
-      gamesIds: [1]
+      gamesIds: []
     };
     console.log(payload);
     const response = await Api.postRequest(Api.url("/profiles"), payload, true);

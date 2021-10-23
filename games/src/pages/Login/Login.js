@@ -32,7 +32,7 @@ export default function Login(props) {
       const userData = await user.json();
       const userId = userData.id
       localStorage.setItem("userId", userId);
-      props.history.push(`/`);
+      props.history.push(`/profiles/${userId}`);
     } else {
       // Error
     }

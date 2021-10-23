@@ -3,7 +3,7 @@ import { JwtHandler } from "../jwt-handler/JwtHandler";
 export const Api = {
   devUrl: "http://localhost:3000",
   productionUrl: "https://mod4backend.herokuapp.com",
-  dev: true,
+  dev: false,
 
   url: (path, param) => {
     const dev = Api.dev ? Api.devUrl : Api.productionUrl;

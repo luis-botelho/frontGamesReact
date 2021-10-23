@@ -31,7 +31,7 @@ export default function Register(props) {
         const accessToken = data.accessToken
         JwtHandler.setJwt(accessToken);
  
-        props.history.push(`profile/create${id}`)
+        props.history.push(`profile/create/${id}`)
     }else {
         window.alert(response.statusText)
     }

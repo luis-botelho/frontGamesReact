@@ -24,7 +24,8 @@ export const JwtHandler = {
 
     clearJwt: () => {
         localStorage.removeItem(JwtHandler.JWT_KEY);
-
+        localStorage.removeItem(JwtHandler.ADMIN)
+        localStorage.removeItem("profile")
         JwtHandler.onChange();
     },
 
